@@ -35,3 +35,11 @@ table, th, td {
   justify-content: center;
   align-content: center;
 }
+
+.filterContainer {
+  display: flex;
+  align-items: center;
+  align-content: center;
+
+  justify-content: center;
+}
