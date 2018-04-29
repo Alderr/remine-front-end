@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import { createSliderWithTooltip, Range } from 'rc-slider';
 
 import 'rc-slider/assets/index.css';
-import './BathAmountFilter.css';
+import './BathAmountSlider.css';
 
 const RangeSlider = createSliderWithTooltip(Range);
 
-function BathAmountFilter(props) {
+function BathAmountSlider(props) {
   return (
-    <section className="bathAmountFilter">
+    <section className="bathAmountSlider">
+      <h1> Baths: </h1>
       <RangeSlider
         onAfterChange={props.setValues}
         min={props.defaultMin}
@@ -20,16 +21,17 @@ function BathAmountFilter(props) {
     </section>
   );
 }
-BathAmountFilter.defaultProps = {
+
+BathAmountSlider.defaultProps = {
   defaultMin: 0,
   defaultMax: 100,
   setValues: PropTypes.func,
 };
 
-BathAmountFilter.propTypes = {
+BathAmountSlider.propTypes = {
   defaultMin: PropTypes.number,
   defaultMax: PropTypes.number,
   setValues: PropTypes.func,
 };
 
-export default BathAmountFilter;
+export default BathAmountSlider;

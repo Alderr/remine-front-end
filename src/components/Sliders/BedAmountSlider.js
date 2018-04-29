@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import { createSliderWithTooltip, Range } from 'rc-slider';
 
 import 'rc-slider/assets/index.css';
-import './BedAmountFilter.css';
+import './BedAmountSlider.css';
 
 const RangeSlider = createSliderWithTooltip(Range);
 
-function BedAmountFilter(props) {
+function BedAmountSlider(props) {
   return (
-    <section className="bedAmountFilter">
+    <section className="bedAmountSlider">
+      <h1> Beds: </h1>
       <RangeSlider
         onAfterChange={props.setValues}
         min={props.defaultMin}
@@ -20,16 +21,16 @@ function BedAmountFilter(props) {
     </section>
   );
 }
-BedAmountFilter.defaultProps = {
+BedAmountSlider.defaultProps = {
   defaultMin: 0,
   defaultMax: 100,
   setValues: PropTypes.func,
 };
 
-BedAmountFilter.propTypes = {
+BedAmountSlider.propTypes = {
   defaultMin: PropTypes.number,
   defaultMax: PropTypes.number,
   setValues: PropTypes.func,
 };
 
-export default BedAmountFilter;
+export default BedAmountSlider;

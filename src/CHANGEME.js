@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import RemineTable from './components/Table/RemineTable/RemineTable';
-import BathAmountFilter from './components/Filters/BathAmountFilter';
-import BedAmountFilter from './components/Filters/BedAmountFilter';
+import BathAmountSlider from './components/Sliders/BathAmountSlider';
+import BedAmountSlider from './components/Sliders/BedAmountSlider';
 import APIClass from './API';
 
 class Test extends Component {
@@ -43,13 +43,13 @@ class Test extends Component {
     return (
       <section className="testContainer">
         <div className="errorMessage">{this.state.errorMessage}</div>
-        <div className="filterContainer">
-          <BathAmountFilter
+        <div className="sliderContainer">
+          <BathAmountSlider
             setValues={values => this.setBathAmountValues(values)}
             defaultMin={this.state.defaultBathAmount.min}
             defaultMax={this.state.defaultBathAmount.max}
           />
-          <BedAmountFilter
+          <BedAmountSlider
             setValues={values => this.setBedAmountValues(values)}
             defaultMin={this.state.defaultBedAmount.min}
             defaultMax={this.state.defaultBedAmount.max}
