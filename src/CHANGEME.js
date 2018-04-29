@@ -20,6 +20,7 @@ class Test extends Component {
       bedAmount: { min: 0, max: 150 },
     };
 
+    // Stops React from creating new () => { to do tasks } every render
     this.setBathAmountValues = this.setBathAmountValues.bind(this);
     this.setBedAmountValues = this.setBedAmountValues.bind(this);
   }
