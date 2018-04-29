@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import RemineTable from './components/Table/RemineTable/RemineTable';
 import BathAmountSlider from './components/Sliders/BathAmountSlider';
 import BedAmountSlider from './components/Sliders/BedAmountSlider';
+import MultiFilter from './MultiFilter';
+import Filters from './Filters';
 import APIClass from './API';
 
 class Test extends Component {
@@ -12,10 +14,10 @@ class Test extends Component {
     this.state = {
       properties: [],
       errorMessage: null,
-      defaultBathAmount: { min: 0, max: 20 },
-      defaultBedAmount: { min: 0, max: 20 },
-      bathAmount: { min: 0, max: 20 },
-      bedAmount: { min: 0, max: 20 },
+      defaultBathAmount: { min: 0, max: 50 },
+      defaultBedAmount: { min: 0, max: 150 },
+      bathAmount: { min: 0, max: 50 },
+      bedAmount: { min: 0, max: 150 },
     };
   }
   componentWillMount() {
@@ -40,6 +42,14 @@ class Test extends Component {
   }
 
   render() {
+    const { min: bedMin, max: bedMax } = this.state.bedAmount;
+    const { min: bathMin, max: bathMax } = this.state.bathAmount;
+
+    const filteredProperties = MultiFilter(this.state.properties, {
+      bedAmountFilter: Filters.BedAmountFilter(bedMin, bedMax),
+      bathAmountFilter: Filters.BathAmountFilter(bathMin, bathMax),
+    });
+
     return (
       <section className="testContainer">
         <div className="errorMessage">{this.state.errorMessage}</div>
@@ -55,7 +65,7 @@ class Test extends Component {
             defaultMax={this.state.defaultBedAmount.max}
           />
         </div>
-        <RemineTable properties={this.state.properties} />
+        <RemineTable properties={filteredProperties} />
       </section>
     );
   }
