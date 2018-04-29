@@ -19,6 +19,9 @@ class Test extends Component {
       bathAmount: { min: 0, max: 50 },
       bedAmount: { min: 0, max: 150 },
     };
+
+    this.setBathAmountValues = this.setBathAmountValues.bind(this);
+    this.setBedAmountValues = this.setBedAmountValues.bind(this);
   }
   componentWillMount() {
     // Fetching data right when component mounts
@@ -55,12 +58,12 @@ class Test extends Component {
         <div className="errorMessage">{this.state.errorMessage}</div>
         <div className="sliderContainer">
           <BathAmountSlider
-            setValues={values => this.setBathAmountValues(values)}
+            setValues={this.setBathAmountValues}
             defaultMin={this.state.defaultBathAmount.min}
             defaultMax={this.state.defaultBathAmount.max}
           />
           <BedAmountSlider
-            setValues={values => this.setBedAmountValues(values)}
+            setValues={this.setBedAmountValues}
             defaultMin={this.state.defaultBedAmount.min}
             defaultMax={this.state.defaultBedAmount.max}
           />
