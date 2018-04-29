@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RemineTable from './components/Table/RemineTable/RemineTable';
 import BathAmountSlider from './components/Sliders/BathAmountSlider';
 import BedAmountSlider from './components/Sliders/BedAmountSlider';
+import BuildingTypeSelector from './components/Selectors/BuildingTypeSelector';
 import MultiFilter from './MultiFilter';
 import Filters from './Filters';
 import APIClass from './API';
@@ -18,18 +19,28 @@ class Test extends Component {
       defaultBedAmount: { min: 0, max: 150 },
       bathAmount: { min: 0, max: 50 },
       bedAmount: { min: 0, max: 150 },
+      buildingTypes: null,
+      buildingTypesSelected: [],
     };
 
     // Stops React from creating new () => { to do tasks } every render
     this.setBathAmountValues = this.setBathAmountValues.bind(this);
     this.setBedAmountValues = this.setBedAmountValues.bind(this);
+    this.setBuildingTypeSelected = this.setBuildingTypeSelected.bind(this);
   }
+
   componentWillMount() {
     // Fetching data right when component mounts
     // & it's easier to handle errors here than in API.js
     // this.setState({ bathAmount: { ...this.state.bathAmount, min: 0 } });
     this.API.getLocations()
       .then(data => this.setState({ properties: data }))
+      .catch(err => this.setState({ errorMessage: err }));
+
+    this.API.getBuildingTypes()
+      .then(data => this.setState({
+        buildingTypes: data.map(item => ({ label: item.name, value: item.name })),
+      }))
       .catch(err => this.setState({ errorMessage: err }));
   }
 
@@ -43,6 +54,10 @@ class Test extends Component {
     const [min, max] = values;
 
     this.setState({ bedAmount: { min, max } });
+  }
+
+  setBuildingTypeSelected(values) {
+    this.setState({ buildingTypesSelected: values });
   }
 
   render() {
@@ -60,6 +75,13 @@ class Test extends Component {
 
     return (
       <section className="testContainer">
+        <div className="selectorContainer">
+          <BuildingTypeSelector
+            changeSelectorValue={this.setBuildingTypeSelected}
+            selectorValue={this.state.buildingTypesSelected}
+            buildingTypeOptions={this.state.buildingTypes}
+          />
+        </div>
         <div className="sliderContainer">
           <BathAmountSlider
             setValues={this.setBathAmountValues}

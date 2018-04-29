@@ -13,12 +13,12 @@ class API {
 
   getLocation(id) {
     return this._api.get(`locations/${id}`)
-      .then(response => response);
+      .then(response => response.data);
   }
 
   getBuildingTypes() {
     return this._api.get('buildingtypes')
-      .then(response => response);
+      .then(response => response.data);
   }
 }
 
