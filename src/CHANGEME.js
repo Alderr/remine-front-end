@@ -54,9 +54,12 @@ class Test extends Component {
       bathAmountFilter: Filters.BathAmountFilter(bathMin, bathMax),
     });
 
+    if (this.state.errorMessage) {
+      return (<div className="errorMessage">{this.state.errorMessage}</div>);
+    }
+
     return (
       <section className="testContainer">
-        <div className="errorMessage">{this.state.errorMessage}</div>
         <div className="sliderContainer">
           <BathAmountSlider
             setValues={this.setBathAmountValues}
