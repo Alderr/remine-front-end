@@ -40,7 +40,7 @@ class Test extends Component {
         const bedMaxFromData = Math.max(...propertiesData.map(location => location.beds), 0);
         const bathMaxFromData = Math.max(...propertiesData.map(location => location.baths), 0);
 
-        // Less lag w/ combined setState
+        // Less lag w/ combined setStatex
         this.setState({
           properties: propertiesData,
           buildingTypes: buildingTypesData.map(item => ({

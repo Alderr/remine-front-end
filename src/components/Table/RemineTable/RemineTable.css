@@ -46,3 +46,19 @@
     width: 25%;
     border: 1px solid black;
 }
+
+@media (max-width: 732px) {
+    .tableContainer {
+        width: 90%;
+        height: 60vw;
+        font-size: 2.8vw;
+    }
+
+    .remineTableHead {
+        margin-bottom: 2vw;
+        padding-top: 2vw;
+
+        font-size: 2.7vw;
+    }
+    
+}
