@@ -10,7 +10,7 @@ const RangeSlider = createSliderWithTooltip(Range);
 function BedAmountSlider(props) {
   return (
     <section className="bedAmountSlider">
-      <h1> Beds: </h1>
+      <h1> Beds - Min:{props.values.min} Max: {props.values.max}  </h1>
       <RangeSlider
         onAfterChange={props.setValues}
         min={props.defaultMin}
@@ -21,16 +21,19 @@ function BedAmountSlider(props) {
     </section>
   );
 }
+
 BedAmountSlider.defaultProps = {
   defaultMin: 0,
   defaultMax: 100,
   setValues: PropTypes.func,
+  values: { min: 0, max: 0 },
 };
 
 BedAmountSlider.propTypes = {
   defaultMin: PropTypes.number,
   defaultMax: PropTypes.number,
   setValues: PropTypes.func,
+  values: PropTypes.objectOf(PropTypes.number),
 };
 
 export default BedAmountSlider;

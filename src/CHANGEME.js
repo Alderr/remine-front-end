@@ -87,11 +87,13 @@ class Test extends Component {
             setValues={this.setBathAmountValues}
             defaultMin={this.state.defaultBathAmount.min}
             defaultMax={this.state.defaultBathAmount.max}
+            values={this.state.bathAmount}
           />
           <BedAmountSlider
             setValues={this.setBedAmountValues}
             defaultMin={this.state.defaultBedAmount.min}
             defaultMax={this.state.defaultBedAmount.max}
+            values={this.state.bedAmount}
           />
         </div>
         <RemineTable properties={filteredProperties} />
