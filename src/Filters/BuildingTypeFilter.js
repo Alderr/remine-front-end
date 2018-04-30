@@ -6,7 +6,6 @@
  * if specific buildingType exists in obj
  */
 
-// An object is used for n(1) lookup
 export default function BuildingTypeFilter(buildingTypes) {
   return item => Object.keys(buildingTypes).length === 0 || buildingTypes[item.buildingType.name];
 }

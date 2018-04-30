@@ -2,3 +2,10 @@
     width: 200px;
     margin: 20px 50px 20px 50px;
 }
+
+@media (max-width: 732px) {
+    .bathAmountSlider {
+        width: 70vw;
+        margin: 0 0 20px 0;
+    }
+}

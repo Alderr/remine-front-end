@@ -1,5 +1,14 @@
 .buildingTypeSelector {
     display: flex;
     flex-direction: column;
-    width: 70vh;
+    width: 40vw;
 }
+
+@media (max-width: 732px) {
+    .buildingTypeSelector {
+        display: flex;
+        flex-direction: column;
+        width: 90vw;
+    }
+  }
+  

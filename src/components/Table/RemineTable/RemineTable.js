@@ -21,7 +21,7 @@ function RemineTable(props) {
                 (<List
                   height={height}
                   width={width}
-                  rowHeight={100}
+                  rowHeight={height / 3}
                   rowCount={props.properties.length}
                   rowRenderer={givenProps =>
                 (<RemineTableItem {...givenProps} {...props.properties[givenProps.index]} />)}
