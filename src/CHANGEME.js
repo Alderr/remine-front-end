@@ -6,7 +6,6 @@ import BuildingTypeSelector from './components/Selectors/BuildingTypeSelector';
 import MultiFilter from './MultiFilter';
 import Filters from './Filters';
 import APIClass from './API';
-import handleAxiosErrors from './handleAxiosErrors';
 
 class Test extends Component {
   constructor() {
