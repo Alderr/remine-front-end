@@ -1,9 +1,10 @@
 /* eslint no-underscore-dangle: ["error", { "allow": ["_api"] }] */
 import axios from 'axios';
+import API_BASE_URL from './config';
 
 class API {
   constructor() {
-    this._api = axios.create({ baseURL: 'http://localhost:8001' });
+    this._api = axios.create({ baseURL: API_BASE_URL });
   }
 
   getLocations() {
