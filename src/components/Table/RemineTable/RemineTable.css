@@ -17,6 +17,9 @@
     display: flex;
     flex-flow: row;
 
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+
     font-weight: bold;
 
     align-content: space-around;
@@ -50,15 +53,15 @@
 @media (max-width: 732px) {
     .tableContainer {
         width: 90%;
-        height: 60vw;
-        font-size: 2.8vw;
+        height: 110vw;
+        font-size: 4vw;
     }
 
     .remineTableHead {
         margin-bottom: 2vw;
         padding-top: 2vw;
 
-        font-size: 2.7vw;
+        font-size: 3.2vw;
     }
     
 }
