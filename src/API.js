@@ -3,7 +3,7 @@ import axios from 'axios';
 
 class API {
   constructor() {
-    this._api = axios.create({ baseURL: 'http://localhost:8001' });
+    this._api = axios.create({ baseURL: 'http://localhost:800' });
   }
 
   getLocations() {

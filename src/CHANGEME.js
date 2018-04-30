@@ -6,6 +6,7 @@ import BuildingTypeSelector from './components/Selectors/BuildingTypeSelector';
 import MultiFilter from './MultiFilter';
 import Filters from './Filters';
 import APIClass from './API';
+import handleAxiosErrors from './handleAxiosErrors';
 
 class Test extends Component {
   constructor() {
@@ -35,13 +36,13 @@ class Test extends Component {
     // this.setState({ bathAmount: { ...this.state.bathAmount, min: 0 } });
     this.API.getLocations()
       .then(data => this.setState({ properties: data }))
-      .catch(err => this.setState({ errorMessage: err }));
+      .catch(err => this.setState({ errorMessage: err.response }));
 
     this.API.getBuildingTypes()
       .then(data => this.setState({
         buildingTypes: data.map(item => ({ label: item.name, value: item.name })),
       }))
-      .catch(err => this.setState({ errorMessage: err }));
+      .catch(err => handleAxiosErrors(err));
   }
 
   setBathAmountValues(values) {
