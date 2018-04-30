@@ -67,6 +67,11 @@ class Test extends Component {
     const filteredProperties = MultiFilter(this.state.properties, {
       bedAmountFilter: Filters.BedAmountFilter(bedMin, bedMax),
       bathAmountFilter: Filters.BathAmountFilter(bathMin, bathMax),
+      buildingTypeFilter: Filters.BuildingTypeFilter(this.state.buildingTypesSelected
+        .reduce((accumaltorObject, buildingType) => ({
+          ...accumaltorObject,
+          [buildingType.value]: 1,
+        }), {})),
     });
 
     if (this.state.errorMessage) {
