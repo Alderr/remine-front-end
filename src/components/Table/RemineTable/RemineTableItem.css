@@ -1,0 +1,4 @@
+.remineTableItem {
+    display: flex;
+    flex-flow: row;
+}
