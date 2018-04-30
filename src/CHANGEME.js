@@ -37,14 +37,32 @@ class Test extends Component {
     Promise.all([this.API.getLocations(), this.API.getBuildingTypes()])
       .then((data) => {
         const [propertiesData, buildingTypesData] = data;
+        const bedMaxFromData = Math.max(...propertiesData.map(location => location.beds), 0);
+        const bathMaxFromData = Math.max(...propertiesData.map(location => location.baths), 0);
 
-        this.setState({ properties: propertiesData });
-
+        // Less lag w/ combined setState
         this.setState({
+          properties: propertiesData,
           buildingTypes: buildingTypesData.map(item => ({
             label: item.name,
             value: item.name,
           })),
+          defaultBathAmount: {
+            ...this.state.defaultBathAmount,
+            max: bathMaxFromData,
+          },
+          defaultBedAmount: {
+            ...this.state.defaultBedAmount,
+            max: bedMaxFromData,
+          },
+          bedAmount: {
+            ...this.state.bedAmount,
+            max: bedMaxFromData,
+          },
+          bathAmount: {
+            ...this.state.bathAmount,
+            max: bathMaxFromData,
+          },
         });
       })
       .catch(() => this.setState({ errorMessage: 'Error: Unable to show list' }));
