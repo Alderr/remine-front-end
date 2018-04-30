@@ -1,31 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import LazyLoad from 'react-lazyload';
+import RemineTableItem from './RemineTableItem';
+
 import './RemineTable.css';
 
 function RemineTable(props) {
   return (
     <div className="tableContainer">
       <p>Table length: <strong>{props.properties.length}</strong></p>
-      <table className="remineTable">
-        <thead>
-          <tr>
-            <th>Address</th>
-            <th>Building Type</th>
-            <th>Beds</th>
-            <th>Baths</th>
-          </tr>
-        </thead>
-        <tbody className="remineTableBody">
-          {props.properties.map(property => (
-            <tr key={property.id}>
-              <td>{property.address}</td>
-              <td>{property.buildingType.name}</td>
-              <td>{property.beds}</td>
-              <td>{property.baths}</td>
-            </tr>
-            ))}
-        </tbody>
-      </table>
+      <div className="remineTable">
+        <div className="remineTableHead">
+          <h3>Address</h3>
+          <h3>Building Type</h3>
+          <h3>Beds</h3>
+          <h3>Baths</h3>
+        </div>
+
+        {/* <div className="remineTableBody">
+            {props.properties.map(property => (<RemineTableItem key={property.id} {...property} />))}
+          </div> */}
+      </div>
+
     </div>
   );
 }
@@ -39,3 +35,10 @@ RemineTable.propTypes = {
 };
 
 export default RemineTable;
+
+{ /* <tr key={property.id}>
+<td>{property.address}</td>
+<td>{property.buildingType.name}</td>
+<td>{property.beds}</td>
+<td>{property.baths}</td>
+</tr> */ }

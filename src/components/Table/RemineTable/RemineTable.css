@@ -1,8 +1,27 @@
 .remineTable {
     width: 100%;
-
+    display: flex;
+    flex-flow: column;
 }
-  
+
+.remineTableHead {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+
+    align-content: space-around;
+    justify-content: center;
+
+    border: 1px solid black;
+    color: red;
+}
+
+.remineTableHead h3 {
+    font-size: 2.5vh;
+    padding: 0;
+    margin: 0;
+    flex: 3;
+}
 .tableContainer {
     margin: auto;
     padding-top: 1em;
