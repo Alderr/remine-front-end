@@ -34,15 +34,21 @@ class Test extends Component {
     // Fetching data right when component mounts
     // & it's easier to handle errors here than in API.js
     // this.setState({ bathAmount: { ...this.state.bathAmount, min: 0 } });
-    this.API.getLocations()
-      .then(data => this.setState({ properties: data }))
-      .catch(err => this.setState({ errorMessage: err.response }));
 
-    this.API.getBuildingTypes()
-      .then(data => this.setState({
-        buildingTypes: data.map(item => ({ label: item.name, value: item.name })),
-      }))
-      .catch(err => handleAxiosErrors(err));
+    Promise.all([this.API.getLocations(), this.API.getBuildingTypes()])
+      .then((data) => {
+        const [propertiesData, buildingTypesData] = data;
+
+        this.setState({ properties: propertiesData });
+
+        this.setState({
+          buildingTypes: buildingTypesData.map(item => ({
+            label: item.name,
+            value: item.name,
+          })),
+        });
+      })
+      .catch(() => this.setState({ errorMessage: 'Error: Unable to show list' }));
   }
 
   setBathAmountValues(values) {
