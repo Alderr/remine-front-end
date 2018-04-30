@@ -26,7 +26,7 @@ RemineTableItem.propTypes = {
   buildingType: PropTypes.shape({ id: PropTypes.number, name: PropTypes.string }),
   beds: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   baths: PropTypes.number,
-  style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string]))  ,
+  style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])),
 };
 
 export default RemineTableItem;
