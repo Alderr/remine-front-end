@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LazyLoad from 'react-lazyload';
 import RemineTableItem from './RemineTableItem';
-
+import { List, AutoSizer } from 'react-virtualized';
 import './RemineTable.css';
 
 function RemineTable(props) {
@@ -17,7 +16,24 @@ function RemineTable(props) {
           <div className="cell">Baths</div>
         </div>
         <div className="remineTableBody">
-          {props.properties.map(property => (<RemineTableItem key={property.id} {...property} />))}
+          <AutoSizer>
+            {({ height, width }) => {
+              console.log(height, width);
+              return(
+              <List
+                height={height}
+                width={width}
+                rowHeight={100}
+                rowCount={props.properties.length}
+                rowRenderer={givenProps =>
+                (<RemineTableItem
+                  {...givenProps}
+                  {...props.properties[givenProps.index]}
+                />)}
+              />
+      )}}
+          </AutoSizer>
+          {/* {props.properties.map(property => (<RemineTableItem key={property.id} {...property} />))} */}
         </div>
       </div>
 

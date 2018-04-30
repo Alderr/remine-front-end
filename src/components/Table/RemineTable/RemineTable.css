@@ -2,17 +2,14 @@
     margin: auto;
     padding-top: 1em;
     width: 80%;
+    height: 50vw;
+
+    font-size: 1.5vw;
 }
 
 .remineTable {
     width: 100%;
-    display: flex;
-    flex-flow: column;
-}
-
-.remineTable {
-    display: flex;
-    flex-wrap: wrap;
+    height: 100%;
     padding: 0;
 }
 
@@ -21,28 +18,32 @@
     display: flex;
     flex-flow: row;
 
+    font-weight: bold;
+
     align-content: space-around;
     justify-content: center;
 
-    border: 1px solid black;
-    color: red;
+    border-top: 1px solid black;
 }
 
 .remineTableHead div {
-    font-size: 2.5vh;
+    width: 25%;
     padding: 0;
     margin: 0;
 }
 
 .remineTableBody {
     width: 100%;
-    flex-flow: column;
-
-    border: 1px solid black;
-    color: red;
+    height: 100%;
 }
 
-.cell {
-    width: 33.3%;
+.remineTableBody {
+    margin-left: 5px;
+    border-bottom: 1px solid black;
+    margin-bottom: 100px;
+}
+
+.cell-item {
+    width: 25%;
     border: 1px solid black;
 }
