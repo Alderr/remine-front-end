@@ -11,15 +11,14 @@ function RemineTable(props) {
       <p>Table length: <strong>{props.properties.length}</strong></p>
       <div className="remineTable">
         <div className="remineTableHead">
-          <h3>Address</h3>
-          <h3>Building Type</h3>
-          <h3>Beds</h3>
-          <h3>Baths</h3>
+          <div className="cell">Address</div>
+          <div className="cell">Building Type</div>
+          <div className="cell">Beds</div>
+          <div className="cell">Baths</div>
         </div>
-
-        {/* <div className="remineTableBody">
-            {props.properties.map(property => (<RemineTableItem key={property.id} {...property} />))}
-          </div> */}
+        <div className="remineTableBody">
+          {props.properties.map(property => (<RemineTableItem key={property.id} {...property} />))}
+        </div>
       </div>
 
     </div>

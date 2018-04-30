@@ -5,13 +5,12 @@ import './RemineTableItem.css';
 
 function RemineTableItem(props) {
   return (
-    <tr key={props.id}>
-      <td>{props.address}</td>
-      <td>{props.buildingType.name}</td>
-      <td>{props.beds}</td>
-      <td>{props.baths}</td>
-    </tr>
-
+    <div className="remineTableItem" key={props.id}>
+      <div className="cell">{props.address}</div>
+      <div className="cell">{props.buildingType.name}</div>
+      <div className="cell">{props.beds}</div>
+      <div className="cell">{props.baths}</div>
+    </div>
   );
 }
 
